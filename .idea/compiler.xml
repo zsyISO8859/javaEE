@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="day05-Exception" />
+        <module name="day01-All" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="day01-All" target="8" />
+      <module name="day02-String" target="8" />
+      <module name="day04-IO" target="8" />
+      <module name="day05-Exception" target="8" />
+      <module name="day07-注解" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
