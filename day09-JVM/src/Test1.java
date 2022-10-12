@@ -35,7 +35,7 @@ import org.junit.Test;
  *     -Xmx8m 设置堆空间8m
  *     堆内存诊断：
  *              jps 查看当前系统有那些java进程
- *              jmap -heap 进行id    查看堆内存占用情况
+ *              jmap -heap 进程id    查看堆内存占用情况
  *              jconsole            图形化工具可以查看堆内存占用情况
  */
 public class Test1 {
