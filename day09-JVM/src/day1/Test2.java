@@ -1,4 +1,4 @@
-/**
+package day1; /**
  * @author : zhousy
  * @date : 2022/10/11 9:27
  * @version : 1.0
