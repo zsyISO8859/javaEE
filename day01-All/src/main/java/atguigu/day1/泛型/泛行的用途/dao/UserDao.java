@@ -1,6 +1,6 @@
 package atguigu.day1.泛型.泛行的用途.dao;
 
-import com.atguigu.day1.泛型.泛行的用途.domain.User;
+import atguigu.day1.泛型.泛行的用途.domain.User;
 
 /**
  * @author : zhousy

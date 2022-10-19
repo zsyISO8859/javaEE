@@ -1,7 +1,7 @@
 package atguigu.day2.枚举.test;
 
-import com.atguigu.day2.枚举.jdk5之前的枚举.Season;
-import com.atguigu.day2.枚举.jdk5之后的枚举.Season1;
+import atguigu.day2.枚举.jdk5之前的枚举.Season;
+import atguigu.day2.枚举.jdk5之后的枚举.Season1;
 
 /**
  * @author : zhousy

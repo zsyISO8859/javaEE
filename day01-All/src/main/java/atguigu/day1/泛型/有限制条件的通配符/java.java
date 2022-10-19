@@ -1,7 +1,8 @@
 package atguigu.day1.泛型.有限制条件的通配符;
 
-import com.atguigu.day1.泛型.有限制条件的通配符.domain.Person;
-import com.atguigu.day1.泛型.有限制条件的通配符.domain.User;
+
+import atguigu.day1.泛型.有限制条件的通配符.domain.Person;
+import atguigu.day1.泛型.有限制条件的通配符.domain.User;
 
 import java.util.List;
 
