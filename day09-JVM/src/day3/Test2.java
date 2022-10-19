@@ -97,6 +97,7 @@ import org.junit.Test;
  *              pop 将元素从操作数栈顶弹出，并且直接废弃
  *              ireturn 返回int类型数据  (在finally中如果写了ireturn会吞掉异常)
  *              athrow 抛出异常
+ *              checkcast  强制类型转换，比如将Object转换成Integer
  *
  *
  * 3.编译期处理
