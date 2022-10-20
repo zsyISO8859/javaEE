@@ -56,7 +56,12 @@ import java.util.Set;
  *             *如果使用twr语法如果try中代码出现异常且finally中释放资源的时候也出现异常，外层的异常会调用addSuppressed方法
  *             将资源关闭的异常添加到已经捕获的外层的异常中去，保证2个异常都不会丢。这种语法被称为压制异常。
  *
+ *   3.9 方法重写时的桥接方法： 在方法重写的时候，该重写方法的返回值类型可以是父类中需要重写方法的返回值类型的子类型，java编译器会做以下处理：
+ *                          java编译器会生成一个合成方法(即真正重写父类的方法)，然后在该方法中调用原先重写的方法   (详情见Test3.test3例)
  *
+ *   3.10 匿名内部类： 会生成一个类名为原先类名+$1的类并重写需要重写的方法，然后原先的使用匿名内部类的地方改成 new新生成的类
+ *                   [1]如果匿名内部类用到了外部的变量，外部变量一定要是final修饰的，编译器会在上面说的基础上在新生成的类中再生成一个变量，
+ *                      并使用构造器赋值，且重写方法使用的变量为内部类中自身的变量。
  * 4.类加载阶段
  * 5.类加载器
  * 6.运行期优化
@@ -66,6 +71,7 @@ public class Test3 {
     }
 
     @Test
+    //演示：通过反射只能获取方法返回值或者方法参数的泛行类型 获取不到代码体中定义的泛行。
     public void test() throws NoSuchMethodException {
         Method test = Test3.class.getMethod("test", List.class, Map.class);
         Type[] genericParameterTypes = test.getGenericParameterTypes();
@@ -79,17 +85,11 @@ public class Test3 {
                 }
             }
         }
-
     }
 
     @Test
-    public void test1() {
-        System.out.println(Tdd.QQQQ.ordinal());
-    }
-
-    @Test
+    //此案例证明通过twr语法catch的异常和finally里关闭资源的异常都可以捕获不会丢失
     public void test2() {
-        //此案例证明通过twr语法catch的异常和finally里关闭资源的异常都可以捕获不会丢失
         //java.lang.ArithmeticException: / by zero
         //at day3.Test3.test2(Test3.java:93)
         //Suppressed: java.lang.Exception: 手动发起异常
@@ -100,10 +100,27 @@ public class Test3 {
             e.printStackTrace();
         }
     }
+
+    @Test
+    //验证编译器会生成一个合成方法(即真正重写父类的方法)来调用原先的重写方法
+    public void test3() {
+        for(Method x :B.class.getDeclaredMethods()){
+            System.out.println(x);
+        }
+    }
 }
 
-enum Tdd {
-    ASD, QQQQ
+class A {
+    public Number get() {
+        return 10;
+    }
+}
+
+class B extends A {
+    @Override
+    public Integer get() {
+        return 12;
+    }
 }
 
 class MyResource implements AutoCloseable {
